@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int salario,horas;
+
+int main (){
+    cout << "salário : ";
+    cin>> salario;
+    cout<< "horas trabalhadas: ";
+    cin>> horas;
+    
+    int descontoIR;
+    
+    int salarioB = horas * salario;
+    if (salarioB >= 900 && salarioB <= 1500){
+       
+       descontoIR  = 0.05 * salarioB;
+       
+    }else if (salarioB >= 1500 && salarioB <= 2500){
+        
+       descontoIR = 0.10 * salarioB; 
+    
+    }else if (salarioB > 2500){
+        
+        descontoIR = 0.20 * salarioB;
+        
+    } 
+    
+    int FGTS = 0.11 * salarioB;
+    int descontoInss = 0.10 * salarioB;
+    
+    int totalDescontos = descontoInss + descontoIR; 
+    int salarioLQ = salarioB - totalDescontos;
+    
+    cout << "\n--- FOLHA DE PAGAMENTO ---\n";
+    cout<< "Salário bruto      :R$ "<< salarioB << endl;
+    cout << "(-) IR (5%)       :R$ "<< descontoIR << endl;
+    cout << "(-) INSS          :R$ "<< descontoInss << endl;
+    cout << "FGTS              :R$ "<< FGTS << endl;
+    cout << "Total de descontos   :R$"<< totalDescontos<< endl;
+    cout << "Salário liquido    :R$ "<< salarioLQ << endl;
+    return 0;
+    
+    
+}
